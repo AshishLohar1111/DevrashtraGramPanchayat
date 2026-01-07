@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>takrarNivaran</title>
+  <style>
+.form-card {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.form-card h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #1e3a8a;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(30,58,138,0.15);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #1e40af, #1d4ed8);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .form-card {
+    padding: 22px;
+  }
+
+  .form-card h2 {
+    font-size: 1.4rem;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="form-card">
+  <h2>📋 तक्रार नोंदणी फॉर्म</h2>
+
+  <form action="https://formspree.io/f/your_email_id" method="POST">
+
+    <div class="form-group">
+      <label>👤 तुमचे पूर्ण नाव</label>
+      <input type="text" name="name" placeholder="पूर्ण नाव लिहा" required>
+    </div>
+
+    <div class="form-group">
+      <label>📞 मोबाईल नंबर</label>
+      <input type="tel" name="phone" placeholder="10 अंकी मोबाईल नंबर" required>
+    </div>
+
+    <div class="form-group">
+      <label>🗂️ तक्रारीचा प्रकार</label>
+      <select name="type">
+        <option>पाणी पुरवठा</option>
+        <option>रस्ते व गटारे</option>
+        <option>आरोग्य व स्वच्छता</option>
+        <option>इतर</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>✍️ तक्रार / सूचना</label>
+      <textarea name="message" rows="4" placeholder="तक्रार सविस्तर लिहा..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      🚀 तक्रार सबमिट करा
+    </button>
+
+  </form>
+</div>
+</body>
+</html>

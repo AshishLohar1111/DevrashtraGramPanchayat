@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ऑनलाइन नमुना ८ अर्ज | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #1e3a8a;
+            --success: #16a34a;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--primary);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h2 { color: var(--primary); margin: 0; }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: #f0f7ff;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .note {
+            background: #fff9eb;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #92400e;
+            margin-top: 20px;
+            border: 1px solid #fde68a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h2>डिजिटल नमुना ८ मागणी अर्ज</h2>
+            <p>कृपया आवश्यक माहिती अचूक भरा</p>
+        </div>
+
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label>अर्जदाराचे पूर्ण नाव (मालकाचे नाव)</label>
+                <input type="text" placeholder="उदा. गणेश विठ्ठल पाटील" required>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <div class="input-group" style="flex: 1;">
+                    <label>मालमत्ता क्रमांक (घर नंबर)</label>
+                    <input type="text" placeholder="उदा. १२३/अ" required>
+                </div>
+                <div class="input-group" style="flex: 1;">
+                    <label>मोबाईल नंबर</label>
+                    <input type="tel" pattern="[0-9]{10}" placeholder="९८XXXXXXXX" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>मालमत्तेचा प्रकार</label>
+                <select required>
+                    <option value="">निवडा...</option>
+                    <option value="residential">रहिवासी (घर)</option>
+                    <option value="commercial">व्यावसायिक (दुकान/गाळा)</option>
+                    <option value="open">मोकळी जागा</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>उतारा कशासाठी हवा आहे? (कारण)</label>
+                <textarea rows="3" placeholder="उदा. बँक कर्ज, वारस नोंद, इ."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>टॅक्स भरल्याची पावती अपलोड करा (ऐच्छिक)</label>
+                <input type="file" accept="image/*,.pdf">
+            </div>
+
+            <button type="submit" class="submit-btn">अर्जाची मागणी नोंदवा</button>
+        </form>
+
+        <div class="note">
+            ⚠️ <strong>सूचना:</strong> ऑनलाइन मागणी केल्यानंतर, कर थकीत असल्यास उतारा मिळणार नाही. कर भरणा केल्याची खात्री करूनच अर्ज करावा. उतारा तयार झाल्यावर आपल्या मोबाईलवर संपर्क केला जाईल.
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 30px; color: #64748b;">
+        © २०२६ देवराष्ट्रे ग्रामपंचायत ई-सेवा केंद्र
+    </footer>
+
+</body>
+</html>

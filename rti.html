@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>माहितीचा अधिकार (RTI) | देवराष्ट्रे</title>
+    <style>
+        /* Modern Fonts & Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap');
+
+        :root {
+            --primary: #2c3e50;    /* Dark Blue */
+            --highlight: #e74c3c;  /* Red for Important/Legal */
+            --accent: #3498db;     /* Blue for Info */
+            --bg: #f8f9fa;
+            --paper: #ffffff;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Official Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--highlight);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        header p {
+            margin-top: 5px;
+            color: #bdc3c7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Titles */
+        h2.title {
+            color: var(--primary);
+            border-left: 5px solid var(--highlight);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* 1. Officers Card Section */
+        .officer-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .officer-card {
+            flex: 1;
+            min-width: 280px;
+            background: var(--paper);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .role-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .officer-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        .officer-desg {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* 2. Process Steps (Timeline) */
+        .process-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .process-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .step-num {
+            background: var(--accent);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* 3. Info Table (Fees & Time) */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .info-table th, .info-table td {
+            padding: 12px 15px;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #ecf0f1;
+            color: var(--primary);
+        }
+
+        /* 4. Sample Form (Paper Look) */
+        .paper-form {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #dcdcdc;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            font-family: 'Times New Roman', serif; /* Print feel */
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .paper-form::before {
+            content: "नमुना";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 4rem;
+            color: rgba(0,0,0,0.05);
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .form-header { text-align: center; font-weight: bold; margin-bottom: 20px; text-decoration: underline;}
+        .form-row { margin-bottom: 15px; }
+        .dotted { border-bottom: 1px dotted #000; display: inline-block; width: 60%; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .officer-section { flex-direction: column; }
+            .paper-form { padding: 20px; font-size: 0.9rem; }
+            .dotted { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>माहितीचा अधिकार (RTI)</h1>
+        <p>देवराष्ट्रे ग्रामपंचायत पारदर्शकता विभाग</p>
+    </header>
+
+    <div class="container">
+
+        <h2 class="title">संबंधित अधिकारी</h2>
+        <div class="officer-section">
+            <div class="officer-card">
+                <span class="role-badge">जन माहिती अधिकारी (PIO)</span>
+                <span class="officer-name">श्री. ग्रामसेवक</span>
+                <span class="officer-desg">ग्रामपंचायत कार्यालय, देवराष्ट्रे</span>
+                <p style="font-size:0.9rem; margin-top:10px;">
+                    <strong>जबाबदारी:</strong> अर्ज स्वीकारणे व ३० दिवसांत माहिती देणे.
+                </p>
+            </div>
+
+            <div class="officer-card">
+                <span class="role-badge" style="background:#e67e22">प्रथम अपीलीय अधिकारी</span>
+                <span class="officer-name">गट विकास अधिकारी (BDO)</span>
+                <span class="officer-desg">पंचायत समिती, कडेगाव</span>
+                <p style="font-size:0.9rem; margin-top:10px;">
+                    <strong>जबाबदारी:</strong> माहिती न मिळाल्यास तक्रार/सुनावणी घेणे.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="title">महत्त्वाचे नियम व शुल्क</h2>
+        <div style="overflow-x:auto;">
+            <table class="info-table">
+                <tr>
+                    <th>तपशील</th>
+                    <th>माहिती</th>
+                </tr>
+                <tr>
+                    <td><strong>अर्जाचे शुल्क</strong></td>
+                    <td>₹१० (कोर्ट फी स्टॅम्प / रोख पावती)</td>
+                </tr>
+                <tr>
+                    <td><strong>BPL (दारिद्र्य रेषेखालील)</strong></td>
+                    <td>मोफत (पिवळे रेशन कार्ड आवश्यक)</td>
+                </tr>
+                <tr>
+                    <td><strong>माहिती मिळण्याचा कालावधी</strong></td>
+                    <td>३० दिवस</td>
+                </tr>
+                <tr>
+                    <td><strong>झेरॉक्स खर्च</strong></td>
+                    <td>₹२ प्रति पान (A4/A3)</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2 class="title">अर्ज कसा करावा?</h2>
+        <ul class="process-list">
+            <li class="process-item">
+                <div class="step-num">१</div>
+                कोऱ्या कागदावर खालील नमुन्यात अर्ज लिहा.
+            </li>
+            <li class="process-item">
+                <div class="step-num">२</div>
+                अर्जावर ₹१० चा कोर्ट फी स्टॅम्प लावा किंवा ग्रामपंचायत कार्यालयात रोख रक्कम भरून पावती घ्या.
+            </li>
+            <li class="process-item">
+                <div class="step-num">३</div>
+                अर्ज जन माहिती अधिकारी (ग्रामसेवक) यांच्याकडे जमा करा आणि पोचपावती (Inward) घ्या.
+            </li>
+            <li class="process-item">
+                <div class="step-num">४</div>
+                ३० दिवसांच्या आत तुम्हाला लेखी स्वरूपात माहिती मिळेल.
+            </li>
+        </ul>
+
+        <h2 class="title">अर्जाचा नमुना (Format A)</h2>
+        <div class="paper-form">
+            <div class="form-header">माहिती मिळण्याबाबतचा अर्ज (कलम ६ (१) अन्वये)</div>
+            
+            <div class="form-row"><strong>प्रति,</strong><br>जन माहिती अधिकारी तथा ग्रामसेवक,<br>ग्रामपंचायत कार्यालय, देवराष्ट्रे.</div>
+            
+            <div class="form-row"><strong>१. अर्जदाराचे पूर्ण नाव:</strong> <span class="dotted"></span></div>
+            
+            <div class="form-row"><strong>२. पूर्ण पत्ता:</strong> <span class="dotted"></span></div>
+            
+            <div class="form-row"><strong>३. हव्या असलेल्या माहितीचा विषय:</strong><br>
+            देवराष्ट्रे गावातील [विषय लिहा] बाबत माहिती मिळणेबाबत.</div>
+            
+            <div class="form-row"><strong>४. हव्या असलेल्या माहितीचा तपशील:</strong><br>
+            कृपया मला वरील विषयानुसार दिनांक --/--/---- ते --/--/---- पर्यंतची साक्षांकित प्रत मिळावी.</div>
+            
+            <div class="form-row"><strong>५. कालावधी:</strong> <span class="dotted"></span></div>
+            
+            <div class="form-row"><strong>६. अर्जाचे शुल्क:</strong> ₹१० (कोर्ट फी स्टॅम्प / पावती क्र: <span class="dotted" style="width:50px;"></span>)</div>
+            
+            <br>
+            <div style="display:flex; justify-content:space-between;">
+                <div>
+                    <strong>ठिकाण:</strong> देवराष्ट्रे<br>
+                    <strong>दिनांक:</strong>
+                </div>
+                <div style="text-align:center;">
+                    <br>
+                    <strong>अर्जदाराची सही</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>टीप: हा नमुना माहितीसाठी आहे. अधिकृत अर्जासाठी ग्रामपंचायत कार्यालयाशी संपर्क साधा.</p>
+        <p>&copy; २०२५ देवराष्ट्रे ग्रामपंचायत</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>देवराष्ट्रे लोकसंख्या माहिती</title>
+    <style>
+      /* Modern Reset & Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap");
+
+      body {
+        font-family: "Noto Sans Devanagari", sans-serif;
+        background-color: #f4f7f9;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .page-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 2rem;
+        border-bottom: 3px solid #3498db;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      p {
+        color: #7f8c8d;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+      }
+
+      /* Responsive Table Design */
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .info-table th {
+        background-color: #3498db;
+        color: white;
+        padding: 15px;
+        text-align: left;
+      }
+
+      .info-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* Zebra Striping */
+      .info-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .info-table tr:hover {
+        background-color: #f1f7ff;
+        transition: 0.3s;
+      }
+
+      /* Making it look like a list on very small screens */
+      @media (max-width: 400px) {
+        .page-content {
+          padding: 1.5rem;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page-content">
+      <h1>लोकसंख्या</h1>
+      <p>२०११ जनगणनेनुसार देवराष्ट्रे गावाची लोकसंख्या:</p>
+
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>वर्ग</th>
+            <th>संख्या</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>एकूण लोकसंख्या</strong></td>
+            <td>९,७४०</td>
+          </tr>
+          <tr>
+            <td>पुरुष</td>
+            <td>४,९२१</td>
+          </tr>
+          <tr>
+            <td>महिला</td>
+            <td>४,८१९</td>
+          </tr>
+          <tr>
+            <td>०-६ वयोगट</td>
+            <td>१,१२०</td>
+          </tr>
+          <tr>
+            <td>साक्षरता दर</td>
+            <td>७८.५%</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

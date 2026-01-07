@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>इतिहास | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Yantraaja:wght@400;700&display=swap');
+
+        :root {
+            --vintage-paper: #fdf6e3;
+            --sepia-text: #5f4b32;
+            --history-gold: #b8860b;
+            --royal-red: #8b0000;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--vintage-paper);
+            color: var(--sepia-text);
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1590050752117-23a9d7fc2173?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            color: #f1e4d1;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 10px solid var(--history-gold);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Historical Timeline Styling */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--history-gold);
+            margin: 40px 0;
+        }
+
+        .event {
+            position: relative;
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--royal-red);
+            border: 3px solid var(--vintage-paper);
+            border-radius: 50%;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Yantraaja', serif;
+            color: var(--royal-red);
+        }
+
+        .era-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--history-gold);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .legacy-section {
+            border: 2px solid var(--history-gold);
+            padding: 30px;
+            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .highlight-text {
+            font-size: 1.1rem;
+            border-left: 4px solid var(--royal-red);
+            padding-left: 15px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>देवराष्ट्रेचा ऐतिहासिक वारसा</h1>
+        <p>क्रांती आणि नेतृत्वाच्या भूमीचा प्रवास</p>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2>प्राचीन व मध्ययुगीन काळ</h2>
+            <p>देवराष्ट्रे हे गाव कृष्णा नदीच्या खोऱ्यातील एका सुपीक आणि सुरक्षित ठिकाणी वसलेले आहे. ऐतिहासिक संदर्भांनुसार, हे गाव यादव काळात आणि पुढे मराठा साम्राज्यात एक महत्त्वाचे लष्करी व महसुली केंद्र म्हणून ओळखले जात होते. गावातील जुन्या वास्तू आणि मंदिरांची रचना येथील पुरातन समृद्धीची साक्ष देते.</p>
+        </section>
+
+        
+
+        <div class="timeline">
+            <div class="event">
+                <span class="era-title">१८ वे शतक: मराठा साम्राज्य</span>
+                <p>या काळात गाव हे स्थानिक सरंजामी व्यवस्थेचा भाग होते. लष्करी मोहिमांच्या वेळी हे गाव एक महत्त्वाचे विश्रांती स्थान म्हणून वापरले जाई. येथील बलुतेदार पद्धती अत्यंत भक्कम होती.</p>
+            </div>
+
+            <div class="event">
+                <span class="era-title">१२ मार्च १९१३: एका युगाचा प्रारंभ</span>
+                <p>या दिवशी देवराष्ट्रेच्या मातीत <strong>यशवंतराव बळवंतराव चव्हाण</strong> यांचा जन्म झाला. या घटनेने गावाचे नाव जागतिक नकाशावर कोरले गेले.</p>
+            </div>
+
+            <div class="event">
+                <span class="era-title">१९४२: छोडो भारत आंदोलन</span>
+                <p>स्वातंत्र्य संग्रामात देवराष्ट्रे आणि परिसरातील कडेगाव तालुक्याने महत्त्वाची भूमिका बजावली. प्रतिसरकारच्या (पत्री सरकार) कारवायांमध्ये या भागातील तरुणांचा मोठा सहभाग होता.</p>
+            </div>
+        </div>
+
+        <section class="legacy-section">
+            <h3>यशवंतराव चव्हाण आणि देवराष्ट्रे</h3>
+            <p class="highlight-text">"मी या मातीचा आहे आणि या मातीनेच मला घडवले आहे." - स्व. यशवंतराव चव्हाण</p>
+            <p>देवराष्ट्रे हे यशवंतरावांचे जन्मगाव असल्याने, महाराष्ट्राच्या राजकीय संस्कृतीचे उगमस्थान मानले जाते. संयुक्त महाराष्ट्राच्या चळवळीपासून ते आधुनिक महाराष्ट्राच्या औद्योगिक पायाभरणीपर्यंत जे विचार मथले गेले, त्या विचारांची बीजे याच मातीत रोवली गेली होती.</p>
+            
+            
+            
+            <p>आज गावात त्यांचे भव्य स्मारक आणि जन्मस्थान जतन करण्यात आले असून, दरवर्षी हजारो लोक या प्रेरणेचा वारसा पाहण्यासाठी येतात.</p>
+        </section>
+
+        <section>
+            <h2 style="margin-top:50px;">सांस्कृतिक इतिहास</h2>
+            <p>गावाचा इतिहास केवळ राजकारणापुरता मर्यादित नाही. येथील <strong>खंडोबा यात्रा</strong> आणि <strong>कुस्तीची परंपरा</strong> अनेक दशकांपासून अखंड सुरू आहे. देवराष्ट्रेने अनेक नामवंत पैलवान आणि लोककलावंत महाराष्ट्राला दिले आहेत.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>देवराष्ट्रे ग्रामपंचायत - इतिहास जतन विभाग</p>
+        <p>&copy; २०२६ | माहिती संकलन: स्थानिक इतिहास समिती</p>
+    </footer>
+
+</body>
+</html>

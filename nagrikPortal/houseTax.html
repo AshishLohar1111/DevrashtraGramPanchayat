@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>घरपट्टी ऑनलाइन अर्ज | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --tax-blue: #1e3a8a;
+            --tax-gold: #fbbf24;
+            --tax-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--tax-bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .header-brand {
+            background: var(--tax-blue);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header-brand h2 { margin: 0; font-size: 1.8rem; }
+        .header-brand p { margin: 10px 0 0; opacity: 0.9; }
+
+        .main-form { padding: 40px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--tax-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .input-group { display: flex; flex-direction: column; }
+
+        label { font-weight: 600; margin-bottom: 8px; color: #475569; }
+
+        input, select {
+            padding: 12px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--tax-blue);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+        }
+
+        .alert-box {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .submit-btn {
+            background: var(--tax-blue);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .main-form { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="header-brand">
+            <h2>घरपट्टी (मालमत्ता कर) भरणा अर्ज</h2>
+            <p>ग्रामपंचायत देवराष्ट्रे - कर विभाग</p>
+        </div>
+
+        <form class="main-form" action="#" method="POST">
+            
+            <div class="section-header">👤 मालकाची माहिती</div>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>मालकाचे पूर्ण नाव</label>
+                    <input type="text" placeholder="उदा. सुरेश बाळू मोहिते" required>
+                </div>
+                <div class="input-group">
+                    <label>मोबाईल नंबर</label>
+                    <input type="tel" maxlength="10" placeholder="९८XXXXXXXX" required>
+                </div>
+            </div>
+
+            <div class="section-header">🏠 मालमत्तेचा तपशील</div>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>मालमत्ता / घर क्रमांक</label>
+                    <input type="text" placeholder="उदा. २५५/१" required>
+                </div>
+                <div class="input-group">
+                    <label>प्रभाग (Ward) नंबर</label>
+                    <select required>
+                        <option value="">निवडा...</option>
+                        <option>प्रभाग क्र. १</option>
+                        <option>प्रभाग क्र. २</option>
+                        <option>प्रभाग क्र. ३</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 25px;">
+                <label>मालमत्तेचा वापर</label>
+                <select required>
+                    <option value="">निवडा...</option>
+                    <option>केवळ रहिवासी (Residential)</option>
+                    <option>व्यावसायिक (Commercial)</option>
+                    <option>मिश्र (रहिवासी + दुकान)</option>
+                </select>
+            </div>
+
+            <div class="alert-box">
+                <span>💡</span>
+                <p style="margin:0; font-size: 0.9rem; color: #92400e;">
+                    <strong>टीप:</strong> अर्ज सबमिट केल्यानंतर आमचे कर्मचारी आपल्या माहितीची पडताळणी करतील आणि आपल्याला देय असलेल्या कराची (Tax Amount) लिंक पाठवली जाईल.
+                </p>
+            </div>
+
+            <button type="submit" class="submit-btn">कराची मागणी नोंदवा</button>
+        </form>
+    </div>
+
+    <footer style="text-align:center; padding: 20px; color: #64748b; font-size: 0.9rem;">
+        वेळेवर घरपट्टी भरा, गावाच्या विकासात योगदान द्या!
+    </footer>
+
+</body>
+</html>

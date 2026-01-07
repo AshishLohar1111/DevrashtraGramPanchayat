@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>फोटो गॅलरी | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        :root {
+            --primary: #1e3a8a;
+            --accent: #f59e0b;
+            --bg: #0f172a; /* Dark Elegant Background */
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 250px;
+            cursor: pointer;
+            border: 2px solid #334155;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Hover Effects */
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay span {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Category Filter Tabs */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox effect using CSS only */
+        .gallery-item:active {
+            filter: brightness(1.2);
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .gallery-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>देवराष्ट्रे दर्शन</h1>
+        <p>गावातील प्रेक्षणीय स्थळे आणि आठवणींची गॅलरी</p>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn active">सर्व फोटो</button>
+        <button class="filter-btn">स्मारक</button>
+        <button class="filter-btn">शेती</button>
+        <button class="filter-btn">मंदिरे</button>
+        <button class="filter-btn">विकास कामे</button>
+    </div>
+
+    <div class="gallery-container">
+        
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1590050752117-23a9d7fc2173?auto=format&fit=crop&q=80&w=800" alt="स्मारक">
+            <div class="overlay">
+                <span>यशवंतराव चव्हाण स्मारक</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517006859695-860367f9f407?auto=format&fit=crop&q=80&w=800" alt="शेती">
+            <div class="overlay">
+                <span>निसर्गरम्य परिसर</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?auto=format&fit=crop&q=80&w=800" alt="मंदिर">
+            <div class="overlay">
+                <span>गावातील पुरातन मंदिर</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800" alt="शेती">
+            <div class="overlay">
+                <span>सुपीक शेती</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1605000797439-75a1500887c6?auto=format&fit=crop&q=80&w=800" alt="विकास">
+            <div class="overlay">
+                <span>नवीन रस्ते विकास</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1524492459426-03cc44748368?auto=format&fit=crop&q=80&w=800" alt="सांस्कृतिक">
+            <div class="overlay">
+                <span>गावाची संस्कृती</span>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <footer>
+        <p>&copy; २०२६ देवराष्ट्रे ग्रामपंचायत - डिजिटल गॅलरी</p>
+    </footer>
+
+</body>
+</html>

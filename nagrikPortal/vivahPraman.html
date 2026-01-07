@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vivahPraman</title>
+    <style>
+body {
+  font-family: "Noto Sans Marathi", sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.card h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #2563eb;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1e40af;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  .card h2 {
+    font-size: 1.4rem;
+  }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+  <div class="card">
+    <h2>📑 विवाह नोंद दाखला</h2>
+
+    <form action="https://formspree.io/f/your_endpoint" method="POST">
+
+      <div class="form-group">
+        <label>अर्जदाराचे नाव *</label>
+        <input type="text" name="applicant_name" required>
+      </div>
+
+      <div class="form-group">
+        <label>मोबाईल नं *</label>
+        <input type="tel" name="applicant_phone" required>
+      </div>
+
+      <div class="form-group">
+        <label>पतीचे नाव *</label>
+        <input type="text" name="husband_name" required>
+      </div>
+
+      <div class="form-group">
+        <label>पत्नीचे नाव *</label>
+        <input type="text" name="wife_name" required>
+      </div>
+
+      <div class="form-group">
+        <label>मोबाईल नं (पत्नी) *</label>
+        <input type="tel" name="wife_phone" required>
+      </div>
+
+      <div class="form-group">
+        <label>विवाह दिनांक *</label>
+        <input type="date" name="marriage_date" required>
+      </div>
+
+      <div class="form-group">
+        <label>विवाह ठिकाण *</label>
+        <input type="text" name="marriage_place" required>
+      </div>
+
+      <button type="submit" class="submit-btn">सबमिट करा</button>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>थकबाकी नसल्याचा दाखला | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #2e7d32; /* Green representing 'Clear/No Dues' */
+            --bg: #fdfdfd;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 10px solid var(--primary);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        .info-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #1b5e20;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2 style="color: var(--primary);">थकबाकी नसल्याचा दाखला (No Dues)</h2>
+            <p>ग्रामपंचायत देवराष्ट्रे - ई-प्रशासन सेवा</p>
+        </div>
+
+        <div class="info-box">
+            <strong>महत्त्वाची सूचना:</strong> अर्ज करण्यापूर्वी आपली चालू वर्षाची घरपट्टी आणि पाणीपट्टी पूर्ण भरलेली असल्याची खात्री करा. थकबाकी असल्यास दाखला नाकारला जाऊ शकतो.
+        </div>
+
+        <form action="#">
+            <div class="form-group">
+                <label>अर्जदाराचे नाव</label>
+                <input type="text" placeholder="संपूर्ण नाव लिहा" required>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>मालमत्ता क्रमांक</label>
+                    <input type="text" placeholder="उदा. १०५" required>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>मोबाईल नंबर</label>
+                    <input type="tel" placeholder="१० अंकी क्रमांक" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>दाखल्याचे प्रयोजन (कारण)</label>
+                <select required>
+                    <option value="">निवडा...</option>
+                    <option>बँक कर्जासाठी (Bank Loan)</option>
+                    <option>मालमत्ता खरेदी-विक्री</option>
+                    <option>वीज/नळ जोडणीसाठी</option>
+                    <option>इतर शासकीय काम</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>शेवटची टॅक्स पावती जोडा (फोटो)</label>
+                <input type="file" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn-submit">दाखल्यासाठी मागणी नोंदवा</button>
+        </form>
+    </div>
+
+</body>
+</html>

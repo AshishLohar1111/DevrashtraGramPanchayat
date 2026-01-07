@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>देवराष्ट्रे ग्रामपंचायत | सरकारी योजना</title>
+    <style>
+        /* Google Fonts Import */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --success-color: #27ae60;
+            --warning-color: #e67e22;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Population Table Card */
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .pop-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 300px;
+        }
+
+        .pop-table th, .pop-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pop-table th {
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+
+        /* Schemes Grid */
+        .schemes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Scheme Card Design */
+        .scheme-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .scheme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .scheme-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tag.housing { background: #e8f6f3; color: #1abc9c; }
+        .tag.women { background: #fdebd0; color: #e67e22; }
+        .tag.farmers { background: #e9f7ef; color: #27ae60; }
+        .tag.pension { background: #ebf5fb; color: #3498db; }
+
+        .scheme-details {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>देवराष्ट्रे ग्रामपंचायत</h1>
+        <p>सांगली जिल्हा | महाराष्ट्र शासन</p>
+    </header>
+
+    <div class="container">
+
+        <h2 class="section-title">महत्त्वाच्या सरकारी योजना</h2>
+        
+        <div class="schemes-grid">
+            
+            <div class="scheme-card" style="border-top-color: #1abc9c;">
+                <span class="tag housing">गृहनिर्माण</span>
+                <h3><span class="icon">🏠</span> प्रधानमंत्री आवास योजना</h3>
+                <p class="scheme-details">
+                    कच्चे घर असलेल्या किंवा बेघर कुटुंबांना पक्के घर बांधण्यासाठी आर्थिक मदत.
+                </p>
+                <ul>
+                    <li>अनुदान: ₹१.२० लाख + नरेगा मजुरी</li>
+                    <li>पात्रता: SECC 2011 यादीनुसार</li>
+                </ul>
+            </div>
+
+            <div class="scheme-card" style="border-top-color: #e67e22;">
+                <span class="tag women">महिला कल्याण</span>
+                <h3><span class="icon">👩‍👧</span> मुख्यमंत्री लाडकी बहीण योजना</h3>
+                <p class="scheme-details">
+                    महिलांच्या आर्थिक सक्षमीकरणासाठी थेट बँक खात्यात दरमहा मदत.
+                </p>
+                <ul>
+                    <li>लाभ: ₹१,५०० दरमहा</li>
+                    <li>वयोगट: २१ ते ६५ वर्षे</li>
+                </ul>
+            </div>
+
+            <div class="scheme-card" style="border-top-color: #27ae60;">
+                <span class="tag farmers">शेतकरी</span>
+                <h3><span class="icon">🌾</span> पीएम किसान सन्मान निधी</h3>
+                <p class="scheme-details">
+                    अल्पभूधारक शेतकऱ्यांना शेतीसाठी आर्थिक साहाय्य.
+                </p>
+                <ul>
+                    <li>लाभ: वार्षिक ₹६,००० (₹२,००० चे ३ हप्ते)</li>
+                    <li>सोबत: नमो शेतकरी योजना (अतिरिक्त ₹६,०००)</li>
+                </ul>
+            </div>
+
+            <div class="scheme-card" style="border-top-color: #3498db;">
+                <span class="tag pension">पाणी पुरवठा</span>
+                <h3><span class="icon">💧</span> जल जीवन मिशन</h3>
+                <p class="scheme-details">
+                    'हर घर जल' अंतर्गत प्रत्येक घराला नळाद्वारे शुद्ध पिण्याचे पाणी पुरवणे.
+                </p>
+                <ul>
+                    <li>उद्देश: ५५ लिटर प्रति व्यक्ती/दिवस</li>
+                    <li>सद्यस्थिती: गावातील काम प्रगतिपथावर</li>
+                </ul>
+            </div>
+
+            <div class="scheme-card" style="border-top-color: #9b59b6;">
+                <span class="tag pension">सामाजिक सुरक्षा</span>
+                <h3><span class="icon">👴</span> संजय गांधी निराधार योजना</h3>
+                <p class="scheme-details">
+                    वृद्ध, अपंग, विधवा किंवा निराधार व्यक्तींना दरमहा पेन्शन.
+                </p>
+                <ul>
+                    <li>लाभ: ₹१,५०० दरमहा</li>
+                    <li>कागदपत्रे: उत्पन्नाचा दाखला, आधार कार्ड</li>
+                </ul>
+            </div>
+
+             <div class="scheme-card" style="border-top-color: #f1c40f;">
+                <span class="tag farmers">रोजगार</span>
+                <h3><span class="icon">🔨</span> रोहयो (MNREGA)</h3>
+                <p class="scheme-details">
+                    गावातील मजुरांना १०० दिवस कामाची हमी (रस्ते, विहिरी, इ.).
+                </p>
+                <ul>
+                    <li>लाभ: जॉब कार्ड धारकांना काम</li>
+                    <li>वैशिष्ट्य: ग्रामपंचायतीमार्फत अंमलबजावणी</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; २०२५ देवराष्ट्रे ग्रामपंचायत माहिती केंद्र</p>
+    </footer>
+
+</body>
+</html>

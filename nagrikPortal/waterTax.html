@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पाणीपट्टी सेवा | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --water-blue: #0284c7;
+            --water-light: #e0f2fe;
+            --dark-blue: #0c4a6e;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #f0f9ff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.1);
+            overflow: hidden;
+            border: 1px solid #bae6fd;
+        }
+
+        .water-header {
+            background: linear-gradient(135deg, var(--water-blue), var(--dark-blue));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .water-header h1 { margin: 0; font-size: 1.8rem; }
+
+        .main-content { padding: 30px; }
+
+        .service-type {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .type-card {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .type-card:hover, .type-card.active {
+            border-color: var(--water-blue);
+            background: var(--water-light);
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #334155; }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .info-strip {
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #166534;
+        }
+
+        .btn-submit {
+            background: var(--water-blue);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover { background: var(--dark-blue); }
+
+        @media (max-width: 600px) {
+            .service-type { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="water-header">
+            <h1>नळ जोडणी व पाणीपट्टी सेवा</h1>
+            <p>ग्रामपंचायत देवराष्ट्रे - जलपुरवठा विभाग</p>
+        </div>
+
+        <div class="main-content">
+            <div class="info-strip">
+                💧 <strong>नळ जोडणी शुल्क:</strong> वार्षिक पाणीपट्टी ₹ १२०० (घरगुती वापरासाठी) आहे. वेळेवर पाणीपट्टी भरून गावच्या पाणीपुरवठा योजनेस सहकार्य करा.
+            </div>
+
+            <form>
+                <label>सेवेचा प्रकार निवडा</label>
+                <div class="service-type">
+                    <div class="type-card active">
+                        <strong>वार्षिक पाणीपट्टी भरणे</strong>
+                    </div>
+                    <div class="type-card">
+                        <strong>नवीन नळ जोडणी अर्ज</strong>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>खातेदाराचे पूर्ण नाव</label>
+                    <input type="text" placeholder="उदा. विनायक शंकरराव चव्हाण" required>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                    <div style="flex: 1;">
+                        <label>ग्राहक/नळ क्रमांक</label>
+                        <input type="text" placeholder="उदा. W-102">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>मोबाईल नंबर</label>
+                        <input type="tel" maxlength="10" placeholder="९८XXXXXXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>वापराचा प्रकार</label>
+                    <select>
+                        <option>घरगुती (Domestic)</option>
+                        <option>व्यावसायिक (Commercial)</option>
+                        <option>औद्योगिक (Industrial)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>काही संदेश किंवा मागणी असल्यास</label>
+                    <textarea style="width: 100%; border: 2px solid #cbd5e1; border-radius: 10px; padding: 10px;" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">अर्जाची नोंदणी करा</button>
+            </form>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: #64748b; font-size: 0.8rem;">
+        शुद्ध पाणी, सुदृढ आरोग्य! ग्रामपंचायत देवराष्ट्रे.
+    </footer>
+
+</body>
+</html>

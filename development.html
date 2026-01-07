@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>देवराष्ट्रे विकास कामे | Development Dashboard</title>
+    <style>
+        /* Modern Font Setup */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #e67e22; /* Construction Orange */
+            --success: #27ae60;
+            --processing: #3498db;
+            --pending: #95a5a6;
+            --bg: #f4f7f6;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            color: #333;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(120deg, #2c3e50, #4ca1af);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 0;
+            padding: 20px;
+        }
+
+        /* Stats Dashboard */
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            flex: 1;
+            min-width: 150px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Project Cards */
+        .section-header {
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Status Badges */
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .status-complete { background: var(--success); }
+        .status-ongoing { background: var(--processing); }
+        .status-planned { background: var(--pending); }
+
+        .project-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: #f0f3f4;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 0 10px;
+            color: var(--secondary);
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--processing);
+            width: 0%; /* JS or Inline CSS controls this */
+            transition: width 1s ease-in-out;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .stats-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>देवराष्ट्रे गाव विकास</h1>
+        <p>प्रगतीपथावर आपले गाव | विकास कामांचा अहवाल २०२४-२५</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-number">१५+</span>
+                <span class="stat-label">एकूण कामे</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">₹१.५ कोटी</span>
+                <span class="stat-label">निधी मंजूर</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">९०%</span>
+                <span class="stat-label">काम पूर्ण</span>
+            </div>
+        </div>
+
+        <h2 class="section-header">मुख्य विकास कामे</h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <span class="status-badge status-complete">पूर्ण झाले (Completed)</span>
+                <span class="project-icon">🛣️</span>
+                <h3 class="project-title">अंतर्गत सिमेंट रस्ते</h3>
+                <p class="project-desc">
+                    गावातील मुख्य चौक ते प्राथमिक शाळेपर्यंत नवीन काँक्रीट रस्ता आणि गटार योजना.
+                </p>
+                <div class="meta-info">
+                    <span>निधी: १४ वा वित्त आयोग</span>
+                    <span>वर्ष: २०२४</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="status-badge status-ongoing">प्रगतीपथावर (Ongoing)</span>
+                <span class="project-icon">💧</span>
+                <h3 class="project-title">नवीन पाणीपुरवठा टाकी</h3>
+                <p class="project-desc">
+                    जल जीवन मिशन अंतर्गत २ लाख लिटर क्षमतेच्या नवीन टाकीचे बांधकाम सुरू आहे.
+                </p>
+                <div class="progress-container">
+                    <div class="progress-fill" style="width: 70%;"></div>
+                </div>
+                <div class="meta-info">
+                    <span>प्रगती: ७०%</span>
+                    <span>पूर्ण होईल: मार्च २०२५</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="status-badge status-complete">पूर्ण झाले (Completed)</span>
+                <span class="project-icon">🏫</span>
+                <h3 class="project-title">यशवंतराव चव्हाण वाचनालय</h3>
+                <p class="project-desc">
+                    विद्यार्थ्यांसाठी डिजिटल सुविधा आणि नवीन पुस्तकांसह वाचनालयाचे नूतनीकरण.
+                </p>
+                <div class="meta-info">
+                    <span>लाभार्थी: २००+ विद्यार्थी</span>
+                    <span>देणगी: लोकसहभाग</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="status-badge status-planned">मंजूर (Planned)</span>
+                <span class="project-icon">💡</span>
+                <h3 class="project-title">सौर पथदिवे (Solar Lights)</h3>
+                <p class="project-desc">
+                    गावातील मुख्य रस्त्यांवर ५० नवीन सौर ऊर्जेवर चालणारे दिवे बसवणे प्रस्तावित.
+                </p>
+                <div class="meta-info">
+                    <span>निधी: जिल्हा परिषद</span>
+                    <span>स्थिती: निविदा प्रक्रिया</span>
+                </div>
+            </div>
+
+             <div class="project-card">
+                <span class="status-badge status-ongoing">प्रगतीपथावर (Ongoing)</span>
+                <span class="project-icon">🌳</span>
+                <h3 class="project-title">स्मशानभूमी सुशोभीकरण</h3>
+                <p class="project-desc">
+                    स्मशानभूमी परिसरात वृक्षारोपण, पेव्हर ब्लॉक बसवणे आणि पाण्याची सोय करणे.
+                </p>
+                <div class="progress-container">
+                    <div class="progress-fill" style="width: 40%;"></div>
+                </div>
+                <div class="meta-info">
+                    <span>प्रगती: ४०%</span>
+                    <span>देणगी: ग्रामपंचायत फंड</span>
+                </div>
+            </div>
+
+             <div class="project-card">
+                <span class="status-badge status-complete">पूर्ण झाले (Completed)</span>
+                <span class="project-icon">🚮</span>
+                <h3 class="project-title">कचरा व्यवस्थापन (घंटागाडी)</h3>
+                <p class="project-desc">
+                    गावातील कचरा संकलनासाठी २ नवीन घंटागाड्या आणि विलगीकरण शेडची उभारणी.
+                </p>
+                <div class="meta-info">
+                    <span>प्रकार: स्वच्छ भारत</span>
+                    <span>स्थिती: कार्यरत</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>ग्रामपंचायत कार्यालय, देवराष्ट्रे, ता. कडेगाव, जि. सांगली<br>
+        सरपंच: [नाव] | ग्रामसेवक: [नाव]</p>
+    </footer>
+
+</body>
+</html>

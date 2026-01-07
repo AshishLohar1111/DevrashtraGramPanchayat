@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रशासन | देवराष्ट्रे ग्रामपंचायत</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --gov-blue: #003366;
+            --gov-light: #e6f0ff;
+            --accent: #d4a017;
+            --text: #2c3e50;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #f4f7f6;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--gov-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Administration Grid */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--gov-blue);
+            text-align: center;
+        }
+
+        .admin-card h3 {
+            color: var(--gov-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Hierarchy Chart Table */
+        .hierarchy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hierarchy-table th {
+            background: var(--gov-blue);
+            color: white;
+            padding: 15px;
+        }
+
+        .hierarchy-table td {
+            padding: 15px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        /* Citizen Charter Section */
+        .charter-section {
+            background: var(--gov-light);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .charter-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .charter-item {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .time-tag {
+            background: var(--accent);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        h2 {
+            border-left: 5px solid var(--gov-blue);
+            padding-left: 15px;
+            color: var(--gov-blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #eee;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>प्रशासकीय कार्यप्रणाली</h1>
+        <p>ग्रामपंचायत देवराष्ट्रे | पारदर्शक आणि गतिमान प्रशासन</p>
+    </header>
+
+    <div class="container">
+        
+        <h2>प्रशासकीय रचना (Administrative Structure)</h2>
+        <p>ग्रामपंचायतीचे प्रशासन हे दोन मुख्य विभागांत विभागलेले असते: राजकीय (लोकनिर्वाचित) आणि प्रशासकीय (शासकीय नियुक्त).</p>
+
+        
+
+        <div class="admin-grid">
+            <div class="admin-card">
+                <h3>राजकीय विभाग</h3>
+                <p>हा विभाग थेट गावकऱ्यांकडून निवडून दिला जातो.</p>
+                <ul style="text-align: left; display: inline-block;">
+                    <li>सरपंच (प्रमुख)</li>
+                    <li>उपसरपंच</li>
+                    <li>ग्रामपंचायत सदस्य (१५ जागा)</li>
+                </ul>
+            </div>
+
+            <div class="admin-card">
+                <h3>प्रशासकीय विभाग</h3>
+                <p>हा विभाग शासकीय नियमांची अंमलबजावणी करतो.</p>
+                <ul style="text-align: left; display: inline-block;">
+                    <li>ग्रामसेवक (सचिव)</li>
+                    <li>लिपिक (Clerk)</li>
+                    <li>शिपाई / सफाई कामगार</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>नागरिक सनद (Citizen Charter)</h2>
+        <p>विविध दाखले आणि सेवा मिळण्यासाठीचा निश्चित कालावधी खालीलप्रमाणे आहे:</p>
+
+        <div class="charter-section">
+            <div class="charter-list">
+                <div class="charter-item">जन्म / मृत्यू नोंद <span class="time-tag">७ दिवस</span></div>
+                <div class="charter-item">विवाह नोंदणी <span class="time-tag">१५ दिवस</span></div>
+                <div class="charter-item">मालमत्ता पत्र (८-अ) <span class="time-tag">३ दिवस</span></div>
+                <div class="charter-item">नळ जोडणी मंजुरी <span class="time-tag">२१ दिवस</span></div>
+                <div class="charter-item">घर बांधकाम परवानगी <span class="time-tag">३० दिवस</span></div>
+                <div class="charter-item">निराधार योजना अर्ज <span class="time-tag">१५ दिवस</span></div>
+            </div>
+        </div>
+
+        <h2>महत्त्वाच्या समित्या (Committees)</h2>
+        <p>गावाच्या विकासासाठी प्रशासनांतर्गत विविध समित्या कार्यरत आहेत:</p>
+        <table class="hierarchy-table">
+            <thead>
+                <tr>
+                    <th>समितीचे नाव</th>
+                    <th>अध्यक्ष</th>
+                    <th>मुख्य उद्देश</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ग्राम विकास समिती</td>
+                    <td>सरपंच</td>
+                    <td>विकास आराखडा तयार करणे</td>
+                </tr>
+                <tr>
+                    <td>पाणी पुरवठा समिती</td>
+                    <td>सरपंच/सदस्य</td>
+                    <td>पिण्याच्या पाण्याचे नियोजन</td>
+                </tr>
+                <tr>
+                    <td>आरोग्य व स्वच्छता समिती</td>
+                    <td>सदस्य</td>
+                    <td>स्वच्छता व लसीकरण मोहीम</td>
+                </tr>
+                <tr>
+                    <td>शिक्षण समिती</td>
+                    <td>शिक्षण तज्ज्ञ/सदस्य</td>
+                    <td>शालेय सुविधांचा दर्जा सुधारणे</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #ddd; margin-top: 40px;">
+            <h3>लोकशाहीचा कणा: ग्रामसभा</h3>
+            <p>वर्षातून किमान ४ वेळा ग्रामसभा आयोजित केल्या जातात. यामध्ये गावातील प्रत्येक प्रौढ नागरिकाला प्रशासनाला प्रश्न विचारण्याचा आणि विकासाची दिशा ठरवण्याचा अधिकार असतो. प्रशासनातील पारदर्शकता राखण्यासाठी ग्रामसभा हे सर्वात मोठे व्यासपीठ आहे.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>ग्रामपंचायत प्रशासन, देवराष्ट्रे | ता. कडेगाव | जि. सांगली</p>
+        <p>&copy; २०२६ | सर्व हक्क राखीव</p>
+    </footer>
+
+</body>
+</html>

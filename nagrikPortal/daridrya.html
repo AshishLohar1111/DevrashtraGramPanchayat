@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दारिद्र्य रेषा दाखला | देवराष्ट्रे</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+        :root {
+            --gov-maroon: #800000;
+            --soft-gold: #fff9e6;
+            --dark-blue: #1a237e;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #fdfdfd;
+            margin: 0;
+            color: #333;
+        }
+
+        .top-banner {
+            background: var(--gov-maroon);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--gov-maroon);
+        }
+
+        .card h3 {
+            color: var(--gov-maroon);
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Requirements List */
+        .doc-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .doc-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doc-list li::before {
+            content: "✔️";
+            font-size: 0.8rem;
+        }
+
+        /* Online Form Button */
+        .action-box {
+            background: var(--soft-gold);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #f0d58e;
+        }
+
+        .apply-btn {
+            background: var(--dark-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #0d144d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #f1f1f1;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 700px) {
+            .info-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-banner">
+        <h1>दारिद्र्य रेषेखालील असल्याचा दाखला (BPL)</h1>
+        <p>ग्रामपंचायत देवराष्ट्रे - जनसेवा विभाग</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="info-section">
+            <div class="card">
+                <h3>📋 आवश्यक कागदपत्रे</h3>
+                <ul class="doc-list">
+                    <li>नमुना ८ चा उतारा (घरपट्टी पावती)</li>
+                    <li>आधार कार्ड (कुटुंब प्रमुखाचे)</li>
+                    <li>रेशन कार्ड (शिधापत्रिका) झेरॉक्स</li>
+                    <li>उत्पन्नाचा दाखला (तहसीलदार/तलाठी)</li>
+                    <li>स्वयंघोषणा पत्र</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>💡 लाभार्थी पात्रता</h3>
+                <p>या दाखल्यासाठी खालील निकष पूर्ण होणे आवश्यक आहे:</p>
+                <ul class="doc-list">
+                    <li>कुटुंबाचे वार्षिक उत्पन्न विहित मर्यादेपेक्षा कमी असावे.</li>
+                    <li>सर्व्हेच्या यादीत (BPL Survey) कुटुंबाचे नाव असणे अनिवार्य.</li>
+                    <li>घरातील कोणाकडेही चारचाकी वाहन नसावे.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 40px;">
+            <h3>🛠️ मिळवण्याची प्रक्रिया</h3>
+            <p>१. प्रथम ग्रामपंचायत कार्यालयातून विहित नमुन्यातील अर्ज घ्यावा.</p>
+            <p>२. अर्जासोबत वरील सर्व कागदपत्रे जोडावीत.</p>
+            <p>३. ग्रामसेवक किंवा विस्तार अधिकारी आपल्या अर्जाची व परिस्थितीची प्रत्यक्ष पाहणी करतील.</p>
+            <p>४. पडताळणी योग्य आढळल्यास आपणास १० ते १५ दिवसांत दाखला दिला जाईल.</p>
+        </div>
+
+        <div class="action-box">
+            <h2>ऑनलाइन मागणी अर्ज</h2>
+            <p>आपल्याला दाखल्याची गरज असल्यास आपण प्राथमिक माहिती येथे भरू शकता. आमचे प्रतिनिधी आपल्याशी संपर्क करतील.</p>
+            <a href="daridryaArj.html" class="apply-btn">अर्ज प्रक्रिया सुरू करा</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>ग्रामपंचायत देवराष्ट्रे | ता. कडेगाव | जि. सांगली</p>
+        <p>&copy; २०२६ | डिजिटल सेवा केंद्र</p>
+    </footer>
+
+</body>
+</html>
