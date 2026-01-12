@@ -4,35 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>देवराष्ट्र ग्रामपंचायत</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-  <section class="hero-section">
-    <div class="ashoka-emblem">
-      <svg viewBox="0 0 100 100" fill="var(--gold)">
-        <circle cx="50" cy="50" r="48" stroke="var(--accent)" stroke-width="2" fill="none"/>
-        <circle cx="50" cy="50" r="8" fill="var(--accent)"/>
-        <line x1="50" y1="50" x2="50" y2="10" stroke="var(--accent)" stroke-width="3"/>
-        <line x1="50" y1="50" x2="85" y2="35" stroke="var(--accent)" stroke-width="3"/>
-        <line x1="50" y1="50" x2="85" y2="65" stroke="var(--accent)" stroke-width="3"/>
-        <line x1="50" y1="50" x2="50" y2="90" stroke="var(--accent)" stroke-width="3"/>
-        <line x1="50" y1="50" x2="15" y2="65" stroke="var(--accent)" stroke-width="3"/>
-        <line x1="50" y1="50" x2="15" y2="35" stroke="var(--accent)" stroke-width="3"/>
-      </svg>
-    </div>
-    <div class="hero-content">
-      <h1 class="hero-title">देवराष्ट्र</h1>
-      <p class="hero-subtitle">ग्रामपंचायत - कडेगाव, सांगली</p>
-      <div class="hero-badge">🏛️ यशवंतराव चव्हाण यांचे जन्मगाव</div>
-    </div>
-  </section>
-
+<body>
   <!-- Floating Navigation -->
  <div class="nav-wrapper">
   <nav class="navbar">
     <ul>
-      <li><a href="#home">मुख्यपृष्ठ</a></li>
-      <li><a href="about.html">गावाची ओळख</a></li>
+      <li><a href="index.html">मुख्यपृष्ठ</a></li>
+      <li class="volakh-wrapper">
+      <a href="about.html" class="nav-link">गावाची ओळख</a>
+        <div class="volakh-dropdown">
+          <a href="history.html">इतिहास</a>
+          <a href="population.html">लोकसंख्या</a>
+        </div>
+      </li>
 
       <!-- नागरीक पोर्टल DROPDOWN -->
       <li class="nagrik-wrapper">
@@ -49,18 +37,37 @@
         </div>
       </li>
 
-      <li><a href="history.html">इतिहास</a></li>
-      <li><a href="population.html">लोकसंख्या</a></li>
       <li><a href="administration.html">प्रशासन</a></li>
       <li><a href="schemes.html">सरकारी योजना</a></li>
       <li><a href="development.html">विकास योजना</a></li>
       <li><a href="rti.html">आरटीआय</a></li>
       <li><a href="tenders.html">निविदा</a></li>
+      <li><a href="suchanaTakarar.html">तक्रार/सूचना</a></li>
       <li><a href="gallery.html">गॅलरी</a></li>
       <li><a href="contact.html">संपर्क</a></li>
     </ul>
   </nav>
 </div>
+
+  <section class="hero-section">
+    <div class="ashoka-emblem">
+      <svg viewBox="0 0 100 100" fill="var(--gold)">
+        <circle cx="50" cy="50" r="48" stroke="var(--accent)" stroke-width="2" fill="none"/>
+        <circle cx="50" cy="50" r="8" fill="var(--accent)"/>
+        <line x1="50" y1="50" x2="50" y2="10" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="50" y1="50" x2="85" y2="35" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="50" y1="50" x2="85" y2="65" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="50" y1="50" x2="50" y2="90" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="50" y1="50" x2="15" y2="65" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="50" y1="50" x2="15" y2="35" stroke="var(--accent)" stroke-width="3"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title" ><pre>देवराष्ट्र</pre> </h1>
+      <p class="hero-subtitle">ग्रामपंचायत - कडेगाव, सांगली</p>
+      <div class="hero-badge">🏛️ यशवंतराव चव्हाण यांचे जन्मगाव</div>
+    </div>
+  </section>
 
   <!-- Floating Pay Button -->
   <div class="cta-pay">
@@ -79,7 +86,7 @@
   <section class="section">
     <div class="section-header">
       <h2 class="section-title">नेतृत्व</h2>
-      <p class="section-subtitle">महाराष्ट्र शासनाचे मार्गदर्शक</p>
+      <p class="section-subtitle"><pre>महाराष्ट्र</pre> शासनाचे मार्गदर्शक</p>
     </div>
     <div class="leaders-grid">
       <div class="leader-card">
@@ -173,17 +180,20 @@
         <div class="member-role">ग्रामविकास अधिकारी</div>
       </div>
     </div>
+    <div class="btn-container">
+    <a href="administration.html" class="btn-adhik-paha">अधिक पहा</a>
+    </div>
   </section>
 
   <!-- Village Info Section -->
   <section class="section village-info-section">
     <div class="village-split">
-      <img src="images/village9.jpg" alt="देवराष्ट्रे" class="village-image">
+      <img src="images/village9.jpg" alt="<pre>देवराष्ट्र</pre>" class="village-image">
       <div class="village-details">
-        <h2>देवराष्ट्रे ग्रामपंचायत माहिती</h2>
+        <h2><pre>देवराष्ट्र</pre> ग्रामपंचायत माहिती</h2>
         <div class="detail-item">
           <div class="detail-label">गावाचे नाव</div>
-          <div class="detail-value">देवराष्ट्रे</div>
+          <div class="detail-value"><pre>देवराष्ट्र</pre></div>
         </div>
         <div class="detail-item">
           <div class="detail-label">तालुका व जिल्हा</div>
@@ -236,7 +246,7 @@
             <label>ग्रामपंचायत</label>
             <select class="form-select" id="village">
               <option value="">-- गाव निवडा --</option>
-              <option value="devrashtre">देवराष्ट्रे</option>
+              <option value="devrashtre"><pre>देवराष्ट्र</pre></option>
             </select>
           </div>
         </div>
@@ -250,7 +260,7 @@
     <div class="footer-grid">
       <div class="footer-section">
         <h3>📍 संपर्क</h3>
-        <p><strong>पत्ता:</strong><br>देवराष्ट्र, ता. कडेगाव<br>जि. सांगली, महाराष्ट्र - ४१५३०५</p>
+        <p><strong>पत्ता:</strong><br><pre>देवराष्ट्र</pre>, ता. कडेगाव<br>जि. सांगली, महाराष्ट्र - ४१५३०५</p>
         <p><strong>ई-मेल:</strong><br><a href="mailto:devrashtre1940@gmail.com">devrashtre1940@gmail.com</a></p>
         <p><strong>फोन:</strong><br>०२३४७ - २५२१००</p>
       </div>
@@ -258,7 +268,7 @@
       <div class="footer-section">
         <h3>🔗 शासकीय संकेतस्थळे</h3>
         <ul class="footer-links">
-          <li><a href="https://maharashtra.gov.in" target="_blank">→ महाराष्ट्र शासन</a></li>
+          <li><a href="https://maharashtra.gov.in" target="_blank">→ <pre>महाराष्ट्र</pre> शासन</a></li>
           <li><a href="https://rdd.maharashtra.gov.in" target="_blank">→ ग्रामविकास विभाग</a></li>
           <li><a href="https://panchayat.gov.in" target="_blank">→ पंचायत राज मंत्रालय</a></li>
           <li><a href="https://uidai.gov.in" target="_blank">→ आधार कार्ड पोर्टल</a></li>
@@ -281,7 +291,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© २०२५ ग्रामपंचायत देवराष्ट्रे | सर्व हक्क संरक्षित | विकसित करणारे : आपले गाव, आपले हात 🇮🇳</p>
+      <p>© २०२५ ग्रामपंचायत <pre>देवराष्ट्र</pre> | सर्व हक्क संरक्षित | विकसित करणारे : आपले गाव, आपले हात 🇮🇳</p>
     </div>
   </footer>
 
@@ -315,5 +325,11 @@
       }
     }
   </script>
+  <script>
+  // When the navbar is clicked, toggle the 'menu-open' class
+  document.querySelector('.navbar').addEventListener('click', function() {
+    this.classList.toggle('menu-open');
+  });
+</script>
 </body>
 </html>  

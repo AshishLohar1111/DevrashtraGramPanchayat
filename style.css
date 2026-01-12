@@ -1,10 +1,10 @@
     :root {
+      --gold: #d4af37;
+      --accent: #ffffff;
       --primary: #ff9933;
       --secondary: #138808;
-      --accent: #000080;
       --dark: #1a1a2e;
       --light: #f8f9fa;
-      --gold: #FFD700;
     }
 
     * {
@@ -14,7 +14,7 @@
     }
 
     body {
-      font-family: 'Noto Sans Devanagari', sans-serif;
+      font-family: 'Noto Sans Devanagari','Hind', sans-serif;
       line-height: 1.6;
       color: #333;
       background: var(--light);
@@ -56,16 +56,22 @@
       }
     }
 
-    .hero-title {
-      font-size: 4rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
-      background: linear-gradient(to right, var(--gold), white, var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+
+  /* FORCE REAL TEXT */
+  color: #d4af37;
+  background: none !important;
+  -webkit-text-fill-color: #d4af37 !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
 
     .hero-subtitle {
       font-size: 1.5rem;
@@ -104,7 +110,7 @@
 /* ================= NAVBAR ================= */
 
 .nav-wrapper {
-  position: sticky;
+  position: relative;
   top: 20px;
   z-index: 1000;
   padding: 0 20px;
@@ -166,6 +172,132 @@
 .navbar a:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(255,153,51,0.4);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS (Paste this at the bottom) --- */
+
+@media (max-width: 1024px) {
+  .nav-wrapper {
+    margin-bottom: 0; /* Prevents overlapping content on mobile */
+    top: 10px;
+  }
+
+  .navbar {
+    overflow-x: auto; /* Enables horizontal swiping */
+    white-space: nowrap; /* Keeps buttons in one line */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iPhones */
+    padding: 8px 15px;
+  }
+
+  .navbar ul {
+    flex-wrap: nowrap; /* Forces items to stay side-by-side */
+    justify-content: flex-start;
+  }
+
+  /* Dropdown positioning for mobile */
+  .volakh-wrapper, .nagrik-wrapper {
+    position: relative;
+  }
+
+  .volakh-dropdown, .nagrik-dropdown {
+    display: none; /* Hidden until hover/tap */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(26, 26, 46, 0.98);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 10px 0;
+    z-index: 2000;
+  }
+
+  /* Show dropdown when tapping the parent */
+  .volakh-wrapper:hover .volakh-dropdown,
+  .nagrik-wrapper:hover .nagrik-dropdown {
+    display: block;
+  }
+
+  /* Ensure dropdown links don't stretch weirdly */
+  .volakh-dropdown a, .nagrik-dropdown a {
+    padding: 10px 20px;
+    border-radius: 0;
+  }
+}
+
+/* Hide scrollbar for a cleaner look while still allowing swipe */
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+.navbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.main-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 15px;
+}
+
+.volakh-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* The Dropdown Box */
+.volakh-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px; /* Adjusted slightly for Gavchi Volakh */
+
+  /* Dark translucent background with blur */
+  background: rgba(26, 26, 46, 0.98);
+  backdrop-filter: blur(12px);
+
+  /* Design details */
+  border-radius: 20px;
+  padding: 10px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 215, 0, 0.3); /* Gold tint border */
+
+  display: none;
+  z-index: 9999;
+}
+
+/* Dropdown Links Styling */
+.volakh-dropdown a {
+  color: white; /* Ensure text is visible on dark background */
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  margin: 4px 10px;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+  transform: none; /* Disables jump */
+}
+
+/* Link Hover State */
+.volakh-dropdown a:hover {
+  background: rgba(255, 215, 0, 0.1); /* Subtle gold highlight */
+  transform: none;
+  box-shadow: none;
+}
+
+/* Show Dropdown on Hover */
+.volakh-wrapper:hover .volakh-dropdown {
+  display: block;
+}
+
+/* Hover-safe bridge (prevents menu closing when moving mouse down) */
+.volakh-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 12px;
+  width: 100%;
 }
 
 /* ================= नागरीक पोर्टल DROPDOWN ================= */
@@ -270,7 +402,7 @@
       overflow: hidden;
       border-top: 3px solid var(--gold);
       border-bottom: 3px solid var(--gold);
-      margin: 80px 0 60px;
+      margin: 0px 0 0px;
     }
 
     .quote-content {
@@ -298,9 +430,9 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Section Styles */
+     /* Section Styles */
     .section {
-      padding: 80px 20px;
+      padding: 20px 20px;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -314,7 +446,7 @@
     .section-title {
       font-size: 3rem;
       font-weight: 800;
-      color: var(--accent);
+      color: #000080;
       margin-bottom: 15px;
       position: relative;
       display: inline-block;
@@ -340,11 +472,26 @@
 
     /* Leaders Grid - Hexagon Style */
     .leaders-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
+  display: grid;
+  /* Specifically defines 3 columns on desktop */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .leaders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 500px) {
+  .leaders-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
     .leader-card {
       position: relative;
@@ -397,130 +544,255 @@
       font-weight: 600;
     }
 
-    /* Officials Section - Card Style */
-    .officials-section {
-      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-    }
+/* Officials Section - Card Style */
+.officials-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  padding: 60px 20px;
+}
 
-    .official-card {
-      background: white;
-      border-radius: 30px;
-      padding: 50px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      display: grid;
-      grid-template-columns: 350px 1fr;
-      gap: 50px;
-      align-items: center;
-      border: 3px solid transparent;
-      background-clip: padding-box;
-      position: relative;
-    }
+.official-card {
+  background: white;
+  border-radius: 30px;
+  padding: 40px; /* Reduced padding slightly for better balance */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  display: grid;
+  /* Desktop: Image fixed at 350px, Content takes rest */
+  grid-template-columns: 350px 1fr; 
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .official-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 30px;
-      padding: 3px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-    }
+/* Hover Effect for Desktop */
+.official-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+}
 
-    .official-image {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+/* Gradient Border Effect */
+.official-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  padding: 3px; /* Border thickness */
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
-    .official-info h3 {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
+.official-image {
+  width: 100%;
+  height: 380px; /* Slightly taller for elegance */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  display: block;
+}
 
-    .info-row {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
+.official-info h3 {
+  font-size: 2.2rem;
+  color: #392222;
+  margin-bottom: 25px;
+  border-bottom: 2px solid rgba(0,0,0,0.05);
+  padding-bottom: 10px;
+  display: inline-block;
+}
 
-    .info-label {
-      font-weight: 700;
-      color: var(--primary);
-      min-width: 120px;
-    }
+.info-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.info-label {
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 130px;
+  position: relative;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet View (e.g., iPad) */
+@media (max-width: 992px) {
+  .official-card {
+    grid-template-columns: 280px 1fr; /* Smaller image on tablets */
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .official-image {
+    height: 300px;
+  }
+
+  .official-info h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile View (Phones) */
+@media (max-width: 768px) {
+  .official-card {
+    grid-template-columns: 1fr; /* Stack vertically */
+    text-align: center;
+    padding: 25px;
+    gap: 25px;
+  }
+
+  .official-image {
+    height: 300px;
+    width: 100%;
+    max-width: 350px; /* Keep image from getting too huge on tall screens */
+    margin: 0 auto;
+  }
+
+  .info-row {
+    flex-direction: column; /* Stack label and value vertically */
+    gap: 5px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .info-label {
+    min-width: unset;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+}
 
     /* Members - Bento Box Layout */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
+/* Members Grid Layout */
+.members-grid {
+  display: grid;
+  /* Adjusts columns based on screen size automatically */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  padding: 10px;
+}
 
-    .member-box {
-      background: linear-gradient(135deg, var(--accent), #4a4a8a);
-      border-radius: 25px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,128,0.3);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
+/* Individual Member Box */
+.member-box {
+  background: linear-gradient(135deg, var(--accent), #4a4a8a);
+  border-radius: 25px;
+  padding: 40px 20px; /* Adjusted padding for better fit */
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 128, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
 
-    .member-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      transform: rotate(45deg);
-      transition: all 0.6s ease;
-    }
+/* Enhanced Shine Effect */
+.member-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
 
-    .member-box:hover::before {
-      left: 100%;
-    }
+.member-box:hover::before {
+  left: 150%;
+}
 
-    .member-box:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 50px rgba(0,0,128,0.4);
-    }
+/* Hover State */
+.member-box:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px rgba(0, 0, 128, 0.4);
+}
 
-    .member-image {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--gold);
-      margin-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+/* Member Image Style */
+.member-image {
+  width: 160px; /* Slightly smaller for better balance */
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--gold);
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease;
+  display: inline-block;
+}
 
-    .member-name {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 10px;
-    }
+.member-box:hover .member-image {
+  transform: scale(1.05) rotate(3deg); /* Slight pop and tilt */
+}
 
-    .member-role {
-      font-size: 1.1rem;
-      color: var(--gold);
-      font-weight: 600;
-    }
+/* Typography Improvements */
+.member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.member-role {
+  font-size: 1.1rem;
+  color: #000080;
+  font-weight: 600;
+  text-transform: uppercase; /* Makes roles stand out */
+  letter-spacing: 1px;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+@media (max-width: 768px) {
+  .members-grid {
+    /* Two columns on tablets */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 20px;
+  }
+
+  .member-box {
+    padding: 30px 15px;
+  }
+
+  .member-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .member-name {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .members-grid {
+    /* Single column on small phones */
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .member-box:hover {
+    transform: translateY(-5px); /* Less aggressive movement on touch */
+  }
+}
 
     /* Village Info - Split Design */
     .village-info-section {
@@ -835,3 +1107,136 @@
         padding: 50px 15px;
       }
     }
+
+    /* --- Mobile Menu (3 Lines) Logic --- */
+
+@media (max-width: 1024px) {
+    /* 1. Reset the wrapper */
+    .nav-wrapper {
+        margin-bottom: 0;
+        top: 10px;
+    }
+
+    /* 2. Style the Navbar as a Header */
+    .navbar {
+        border-radius: 20px;
+        position: relative;
+        padding: 15px 20px;
+        /* This creates the "Menu" text/icon look using CSS only */
+    }
+
+    /* Creating the "3 Lines" Icon using the :before pseudo-element */
+    .navbar::before {
+        content: '☰ MENU';
+        color: gold;
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+        display: block;
+    }
+
+    /* 3. Hide the List by default */
+    .navbar ul {
+        display: none; /* Hidden */
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    /* 4. The "Magic": When user clicks/taps the navbar, show the list */
+    /* We use :active or :focus-within to trigger the menu */
+    .navbar:active ul, 
+    .navbar:focus-within ul {
+        display: flex;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: left;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* 5. Handle Dropdowns inside the mobile menu */
+    .volakh-dropdown, .nagrik-dropdown {
+        position: static; /* Make them push content down instead of floating */
+        display: none;
+        background: rgba(0, 0, 0, 0.2);
+        width: 100%;
+        margin-left: 10px;
+        border: none;
+    }
+
+    .volakh-wrapper:hover .volakh-dropdown,
+    .nagrik-wrapper:hover .nagrik-dropdown {
+        display: block;
+    }
+}
+
+/* Add this class for the script to toggle */
+.menu-open ul {
+    display: flex !important;
+}
+
+/* Container to center or align the button */
+.btn-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Change to flex-start for left alignment */
+}
+
+/* Main Button Style */
+.btn-adhik-paha {
+    display: inline-block;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid rgba(255, 215, 0, 0.6); /* Gold Border */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+.btn-adhik-paha:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); /* Gold Glow */
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+/* Shine Animation on Hover */
+.btn-adhik-paha::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 215, 0, 0.2), 
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn-adhik-paha:hover::after {
+    left: 100%;
+}
+
+/* Active Click Effect */
+.btn-adhik-paha:active {
+    transform: translateY(-1px);
+}
+
+pre {
+  display: inline;
+}

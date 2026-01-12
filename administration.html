@@ -1,229 +1,519 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>प्रशासन | देवराष्ट्रे ग्रामपंचायत</title>
+    <title>ग्रामपंचायत देवराष्ट्र - प्रशासन</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+        /* --- Global Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        :root {
-            --gov-blue: #003366;
-            --gov-light: #e6f0ff;
-            --accent: #d4a017;
-            --text: #2c3e50;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        body {
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            background-color: #f4f7f6;
-            color: var(--text);
-            margin: 0;
-            line-height: 1.6;
-        }
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-        header {
-            background-color: var(--gov-blue);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--accent);
-        }
+/* --- Header Section --- */
+.header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    animation: fadeInDown 0.8s ease-out;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        /* Administration Grid */
-        .admin-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
 
-        .admin-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--gov-blue);
-            text-align: center;
-        }
+/* --- Section Styling --- */
+.section {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeInUp 0.8s ease-out;
+}
 
-        .admin-card h3 {
-            color: var(--gov-blue);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        /* Hierarchy Chart Table */
-        .hierarchy-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 40px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+.section-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
 
-        .hierarchy-table th {
-            background: var(--gov-blue);
-            color: white;
-            padding: 15px;
-        }
+/* --- Sarpanch & Upsarpanch (Leaders) --- */
+.leaders-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
 
-        .hierarchy-table td {
-            padding: 15px;
-            border: 1px solid #eee;
-            text-align: center;
-        }
+.leader-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+}
 
-        /* Citizen Charter Section */
-        .charter-section {
-            background: var(--gov-light);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 50px;
-        }
+.leader-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
 
-        .charter-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+.leader-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #667eea;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
 
-        .charter-item {
-            background: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
+.leader-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-        .time-tag {
-            background: var(--accent);
-            color: white;
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
+/* --- Members Grid (Centered & Symmetric) --- */
+.members-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* This creates symmetry */
+    gap: 30px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
 
-        h2 {
-            border-left: 5px solid var(--gov-blue);
-            padding-left: 15px;
-            color: var(--gov-blue);
-        }
+.member-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    flex: 0 1 300px; /* Fixed width base for symmetry */
+    max-width: 320px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #eee;
-            margin-top: 50px;
-        }
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.photo-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 5px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Sevak Varg (Staff) - Always Centered --- */
+.sevak-varg-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Forces staff cards to middle */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* --- Typography --- */
+.leader-name, .member-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.leader-position, .member-position {
+    font-size: 1.1em;
+    color: #4a5568;
+    font-weight: 600;
+    padding: 6px 15px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* --- Badges --- */
+.badge, .leader-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 1024px) {
+    .leader-card { width: 100%; max-width: 45%; }
+}
+
+@media (max-width: 768px) {
+    .header h1 { font-size: 2em; }
+    .leader-card { max-width: 100%; }
+    .member-card { flex: 0 1 100%; } /* Cards take full width on small screens */
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    .section { padding: 20px; }
+    .header h1 { font-size: 1.6em; }
+}
+
+/* --- Custom Scrollbar for Browser --- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); }
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(135deg, #667eea, #764ba2); 
+    border-radius: 5px; 
+}
+
+/* --- Footer Styling --- */
+.footer {
+    text-align: center;
+    color: white;
+    padding: 60px 20px 30px;
+    margin-top: 60px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 40px 40px 0 0; /* Rounded top corners */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.2);
+}
+
+/* Background Glow Effect */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(118, 75, 162, 0.3) 0%, transparent 70%);
+    animation: rotateGlow 15s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1; /* Keeps text above the glow */
+}
+
+/* Bouncing Contact Icon */
+.contact-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.4));
+    animation: bounceIcon 2s ease-in-out infinite;
+}
+
+@keyframes bounceIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.footer h3 {
+    font-size: 2.2rem;
+    color: #ffd700; /* Gold color for title */
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.footer p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.footer p strong {
+    color: #ffffff;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Copyright Section */
+.copyright {
+    margin-top: 40px;
+    padding-top: 25px;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer {
+        border-radius: 30px 30px 0 0;
+        padding: 40px 15px 20px;
+    }
+    
+    .footer h3 {
+        font-size: 1.8rem;
+    }
+    
+    .footer p {
+        font-size: 1.1rem;
+    }
+}
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>प्रशासकीय कार्यप्रणाली</h1>
-        <p>ग्रामपंचायत देवराष्ट्रे | पारदर्शक आणि गतिमान प्रशासन</p>
-    </header>
-
     <div class="container">
-        
-        <h2>प्रशासकीय रचना (Administrative Structure)</h2>
-        <p>ग्रामपंचायतीचे प्रशासन हे दोन मुख्य विभागांत विभागलेले असते: राजकीय (लोकनिर्वाचित) आणि प्रशासकीय (शासकीय नियुक्त).</p>
+        <div class="header">
+            <h1>🏛️ ग्रामपंचायत देवराष्ट्र</h1>
+            <p>ता. कडेगाव, जि. सांगली</p>
+            <p>प्रशासन विभाग</p>
+        </div>
 
-        
+        <!-- अध्यक्ष मंडळ Section -->
+        <div class="section">
+            <div class="section-title">अध्यक्ष मंडळ</div>
+            
+            <!-- Leaders Section - Sarpanch and Upsarpanch -->
+            <div class="leaders-section">
+                <div class="leader-card">
+                    <span class="leader-badge">सरपंच</span>
+                    <div class="leader-photo">👤</div>
+                    <div class="leader-name">श्रीमती. निर्मला सिध्देश्वर बोडरे</div>
+                    <div class="leader-position">सरपंच, ग्रामपंचायत</div>
+                </div>
 
-        <div class="admin-grid">
-            <div class="admin-card">
-                <h3>राजकीय विभाग</h3>
-                <p>हा विभाग थेट गावकऱ्यांकडून निवडून दिला जातो.</p>
-                <ul style="text-align: left; display: inline-block;">
-                    <li>सरपंच (प्रमुख)</li>
-                    <li>उपसरपंच</li>
-                    <li>ग्रामपंचायत सदस्य (१५ जागा)</li>
-                </ul>
+                <div class="leader-card">
+                    <span class="leader-badge">उपसरपंच</span>
+                    <div class="leader-photo">👤</div>
+                    <div class="leader-name">श्री. दगडु शामराव कुंभार</div>
+                    <div class="leader-position">उपसरपंच, ग्रामपंचायत</div>
+                </div>
             </div>
 
-            <div class="admin-card">
-                <h3>प्रशासकीय विभाग</h3>
-                <p>हा विभाग शासकीय नियमांची अंमलबजावणी करतो.</p>
-                <ul style="text-align: left; display: inline-block;">
-                    <li>ग्रामसेवक (सचिव)</li>
-                    <li>लिपिक (Clerk)</li>
-                    <li>शिपाई / सफाई कामगार</li>
-                </ul>
+            <!-- Other Members Grid -->
+            <div class="members-grid">
+            <!-- Other Members Grid -->
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. बाबुराव आत्माराम मोरे</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. अनिल आनंदा मोरे</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. गोरख दाद मिसाळ</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. माणिकराव आनंदराव मोरे</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. वैभव शांताराम हीनभाने</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. भारती कृष्णत महिंद</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. मिना रामचंद्र कांबळे</div>
+                    <div class="member-position">ग्रामपंचायत सदस्य</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. ताई सतिश शिरतीडे</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. चैताली अक्षय महिंद</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. इरफाना कय्युम मुल्ला</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. पुष्या दिलीप जाधव</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. शोभा धोंडीराम कुरळे</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">सौ. स्नेहल दिपक पवार</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. धैर्यशिल अरविंद पाटील</div>
+                    <div class="member-position">ग्रामपंचायत सदस्या</div>
+                </div>
             </div>
         </div>
 
-        <h2>नागरिक सनद (Citizen Charter)</h2>
-        <p>विविध दाखले आणि सेवा मिळण्यासाठीचा निश्चित कालावधी खालीलप्रमाणे आहे:</p>
+        <!-- सेवक वर्ग Section -->
+        <div class="section">
+            <div class="section-title">सेवक वर्ग</div>
+            <div class="members-grid">
+                <div class="member-card">
+                    <span class="badge">क्लार्क</span>
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. शशिकांत आत्माराम चव्हाण</div>
+                    <div class="member-position">क्लार्क</div>
+                </div>
 
-        <div class="charter-section">
-            <div class="charter-list">
-                <div class="charter-item">जन्म / मृत्यू नोंद <span class="time-tag">७ दिवस</span></div>
-                <div class="charter-item">विवाह नोंदणी <span class="time-tag">१५ दिवस</span></div>
-                <div class="charter-item">मालमत्ता पत्र (८-अ) <span class="time-tag">३ दिवस</span></div>
-                <div class="charter-item">नळ जोडणी मंजुरी <span class="time-tag">२१ दिवस</span></div>
-                <div class="charter-item">घर बांधकाम परवानगी <span class="time-tag">३० दिवस</span></div>
-                <div class="charter-item">निराधार योजना अर्ज <span class="time-tag">१५ दिवस</span></div>
+                <div class="member-card">
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. संजय हिंदूराव सकटे</div>
+                    <div class="member-position">शिपाई</div>
+                </div>
+
+                <div class="member-card">
+                    <span class="badge">झाडू कामगार</span>
+                    <div class="photo-placeholder">👤</div>
+                    <div class="member-name">श्री. मधुकर बाबा मोरे</div>
+                    <div class="member-position">झाडू कामगार</div>
+                </div>
             </div>
         </div>
 
-        <h2>महत्त्वाच्या समित्या (Committees)</h2>
-        <p>गावाच्या विकासासाठी प्रशासनांतर्गत विविध समित्या कार्यरत आहेत:</p>
-        <table class="hierarchy-table">
-            <thead>
-                <tr>
-                    <th>समितीचे नाव</th>
-                    <th>अध्यक्ष</th>
-                    <th>मुख्य उद्देश</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ग्राम विकास समिती</td>
-                    <td>सरपंच</td>
-                    <td>विकास आराखडा तयार करणे</td>
-                </tr>
-                <tr>
-                    <td>पाणी पुरवठा समिती</td>
-                    <td>सरपंच/सदस्य</td>
-                    <td>पिण्याच्या पाण्याचे नियोजन</td>
-                </tr>
-                <tr>
-                    <td>आरोग्य व स्वच्छता समिती</td>
-                    <td>सदस्य</td>
-                    <td>स्वच्छता व लसीकरण मोहीम</td>
-                </tr>
-                <tr>
-                    <td>शिक्षण समिती</td>
-                    <td>शिक्षण तज्ज्ञ/सदस्य</td>
-                    <td>शालेय सुविधांचा दर्जा सुधारणे</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div style="background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #ddd; margin-top: 40px;">
-            <h3>लोकशाहीचा कणा: ग्रामसभा</h3>
-            <p>वर्षातून किमान ४ वेळा ग्रामसभा आयोजित केल्या जातात. यामध्ये गावातील प्रत्येक प्रौढ नागरिकाला प्रशासनाला प्रश्न विचारण्याचा आणि विकासाची दिशा ठरवण्याचा अधिकार असतो. प्रशासनातील पारदर्शकता राखण्यासाठी ग्रामसभा हे सर्वात मोठे व्यासपीठ आहे.</p>
+        <div class="footer">
+            <div class="footer-content">
+                <div class="contact-icon">📞</div>
+                <h3>संपर्क माहिती</h3>
+                <div class="footer-divider"></div>
+                <p><strong>ग्रामपंचायत देवराष्ट्र</strong></p>
+                <p>ता. कडेगाव, जि. सांगली</p>
+                <p>📧 ईमेल: grampanchayat.devrashtra@gmail.com</p>
+                <p>📱 फोन: +91 XXXXX XXXXX</p>
+                <div class="copyright">
+                    © २०२५ ग्रामपंचायत देवराष्ट्र. सर्व हक्क राखीव.
+                </div>
+            </div>
         </div>
-
     </div>
 
-    <footer>
-        <p>ग्रामपंचायत प्रशासन, देवराष्ट्रे | ता. कडेगाव | जि. सांगली</p>
-        <p>&copy; २०२६ | सर्व हक्क राखीव</p>
-    </footer>
+    <script>
+        // Add smooth scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.member-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 50);
+                    }
+                });
+            }, { threshold: 0.1 });
 
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // You can replace placeholder images with actual photos by updating the HTML
+        // Example: <img src="path/to/photo.jpg" alt="Member Name">
+    </script>
 </body>
 </html>

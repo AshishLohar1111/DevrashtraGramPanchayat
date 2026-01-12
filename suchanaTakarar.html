@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>सूचना व तक्रार - देवराष्ट्रे ग्रामपंचायत</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff9933;
+      --secondary: #138808;
+      --accent: #000080;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --gold: #FFD700;
+      --success: #28a745;
+      --danger: #dc3545;
+      --warning: #ffc107;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--accent), #4a4a8a);
+      color: white;
+      padding: 30px 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,215,0,0.2), transparent);
+      border-radius: 50%;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    /* Navigation Tabs */
+    .tabs-container {
+      max-width: 1400px;
+      margin: -30px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 15px;
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-btn {
+      padding: 15px 35px;
+      background: var(--light);
+      border: 3px solid transparent;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255,153,51,0.1);
+      transform: translateY(-3px);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-color: var(--gold);
+      box-shadow: 0 5px 20px rgba(255,153,51,0.4);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Form Section */
+    .form-section {
+      background: white;
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .form-header h2 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .form-header p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .required {
+      color: var(--danger);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(255,153,51,0.1);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .file-input-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .file-input-wrapper input[type=file] {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .file-input-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      background: var(--light);
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .file-input-label:hover {
+      background: rgba(255,153,51,0.1);
+      border-color: var(--primary);
+    }
+
+    .file-name {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      box-shadow: 0 10px 30px rgba(255,153,51,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255,153,51,0.5);
+    }
+
+    /* Info Cards */
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-left: 5px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .info-card h3 {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* Status Tracker */
+    .tracker-section {
+      background: white;
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .tracker-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .tracker-header h2 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 15px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(255,153,51,0.1);
+    }
+
+    .search-btn {
+      padding: 15px 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .search-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,153,51,0.4);
+    }
+
+    .status-result {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      padding: 40px;
+      border-radius: 20px;
+      border: 3px solid var(--primary);
+    }
+
+    .status-result.show {
+      display: block;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .status-info {
+      margin-bottom: 30px;
+    }
+
+    .status-info-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .status-label {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .status-badge.pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-badge.processing {
+      background: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .status-badge.resolved {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    /* Progress Timeline */
+    .progress-timeline {
+      margin-top: 30px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 50px;
+      width: 2px;
+      height: calc(100% - 30px);
+      background: #ddd;
+    }
+
+    .timeline-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 5px 15px rgba(255,153,51,0.3);
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .timeline-content h4 {
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .timeline-content p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    /* Guidelines Section */
+    .guidelines-section {
+      background: white;
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .guideline-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      padding: 30px;
+      border-radius: 20px;
+      border-left: 5px solid var(--secondary);
+    }
+
+    .guideline-card h3 {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guideline-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .guideline-list li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .guideline-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(255,153,51,0.5);
+      z-index: 999;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255,153,51,0.7);
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      z-index: 2000;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: popIn 0.5s ease;
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .success-message .icon {
+      font-size: 5rem;
+      margin-bottom: 20px;
+    }
+
+    .success-message h3 {
+      font-size: 2rem;
+      color: var(--success);
+      margin-bottom: 15px;
+    }
+
+    .success-message p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .success-message .ref-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--light);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1999;
+      backdrop-filter: blur(5px);
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+
+      .tab-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .form-section,
+      .tracker-section,
+      .guidelines-section {
+        padding: 30px 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .status-info-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .guidelines-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .back-btn {
+        bottom: 15px;
+        left: 15px;
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+      }
+
+      .form-header h2,
+      .tracker-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .success-message {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <h1>🏛️ सूचना व तक्रार पोर्टल</h1>
+      <p><pre>देवराष्ट्रे</pre> ग्रामपंचायत - आपली सेवेत नेहमी तत्पर</p>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs-container">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab('complaint')">
+        📝 नवीन तक्रार नोंदवा
+      </button>
+      <button class="tab-btn" onclick="openTab('track')">
+        🔍 तक्रार स्थिती तपासा
+      </button>
+      <button class="tab-btn" onclick="openTab('guidelines')">
+        📋 मार्गदर्शक तत्त्वे
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Complaint Form Tab -->
+    <div id="complaint" class="tab-content active">
+      <!-- Info Cards -->
+      <div class="info-cards">
+        <div class="info-card">
+          <h3>📞 तातडीची मदत</h3>
+          <p><strong>ग्रामपंचायत कार्यालय:</strong><br>०२३४७-२५२१००</p>
+          <p><strong>सरपंच:</strong><br>९८१२३ ४५६७८</p>
+          <p><strong>ग्रामसेवक:</strong><br>९८७६५ ४३२१०</p>
+        </div>
+
+        <div class="info-card">
+          <h3>⏰ कार्यालय वेळ</h3>
+          <ul>
+            <li>🕐 सकाळी: १०:०० - १:००</li>
+            <li>🕑 दुपारी: २:०० - ५:००</li>
+            <li>📅 सोमवार ते शुक्रवार</li>
+            <li>🚫 शनिवार व रविवार बंद</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>⚡ तक्रार प्रकार</h3>
+          <ul>
+            <li>💧 पाणी पुरवठा</li>
+            <li>🔌 वीज पुरवठा</li>
+            <li>🛣️ रस्ते व पूल</li>
+            <li>🗑️ स्वच्छता</li>
+            <li>🏥 आरोग्य सेवा</li>
+            <li>📚 इतर</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Complaint Form -->
+      <div class="form-section">
+        <div class="form-header">
+          <h2>तक्रार/सूचना नोंदणी फॉर्म</h2>
+          <p>कृपया सर्व माहिती तपशीलवार भरा</p>
+        </div>
+
+        <form id="complaintForm" onsubmit="submitComplaint(event)">
+          <div class="form-grid">
+            <div class="form-field">
+              <label>नाव <span class="required">*</span></label>
+              <input type="text" name="name" required placeholder="आपले पूर्ण नाव">
+            </div>
+
+            <div class="form-field">
+              <label>मोबाईल नंबर <span class="required">*</span></label>
+              <input type="tel" name="mobile" required pattern="[0-9]{10}" placeholder="१० अंकी मोबाईल नंबर">
+            </div>
+
+            <div class="form-field">
+              <label>ईमेल</label>
+              <input type="email" name="email" placeholder="आपला ईमेल पत्ता">
+            </div>
+
+            <div class="form-field">
+              <label>गाव/वस्ती <span class="required">*</span></label>
+              <input type="text" name="village" required placeholder="गाव किंवा वस्तीचे नाव">
+            </div>
+
+            <div class="form-field full">
+              <label>पत्ता <span class="required">*</span></label>
+              <input type="text" name="address" required placeholder="संपूर्ण पत्ता">
+            </div>
+
+            <div class="form-field">
+              <label>तक्रार प्रकार <span class="required">*</span></label>
+              <select name="category" required>
+                <option value="">-- तक्रार प्रकार निवडा --</option>
+                <option value="water">💧 पाणी पुरवठा</option>
+                <option value="electricity">🔌 वीज पुरवठा</option>
+                <option value="road">🛣️ रस्ते व पूल</option>
+                <option value="sanitation">🗑️ स्वच्छता</option>
+                <option value="health">🏥 आरोग्य सेवा</option>
+                <option value="education">📚 शिक्षण</option>
+                <option value="agriculture">🌾 शेती संबंधित</option>
+                <option value="other">📋 इतर</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label>प्राधान्यता <span class="required">*</span></label>
+              <select name="priority" required>
+                <option value="">-- प्राधान्यता निवडा --</option>
+                <option value="high">🔴 अत्यंत तातडीचे</option>
+                <option value="medium">🟡 मध्यम</option>
+                <option value="low">🟢 सामान्य</option>
+              </select>
+            </div>
+
+            <div class="form-field full">
+              <label>तक्रार/सूचना तपशील <span class="required">*</span></label>
+              <textarea name="description" required placeholder="कृपया आपली तक्रार किंवा सूचना तपशीलवार लिहा..."></textarea>
+            </div>
+
+            <div class="form-field full">
+              <label>फोटो संलग्न करा (पर्यायी)</label>
+              <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept="image/*" onchange="updateFileName(this)">
+                <label for="fileInput" class="file-input-label">
+                  📎 फोटो निवडा (अधिकतम 5MB)
+                </label>
+                <div class="file-name" id="fileName"></div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            तक्रार सबमिट करा ✉️
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Track Complaint Tab -->
+    <div id="track" class="tab-content">
+      <div class="tracker-section">
+        <div class="tracker-header">
+          <h2>तक्रार स्थिती तपासा</h2>
+          <p>आपला संदर्भ क्रमांक किंवा मोबाईल नंबर टाका</p>
+        </div>
+
+        <div class="search-box">
+          <input type="text" class="search-input" id="searchInput" placeholder="संदर्भ क्रमांक किंवा मोबाईल नंबर">
+          <button class="search-btn" onclick="trackComplaint()">शोधा 🔍</button>
+        </div>
+
+        <div class="status-result" id="statusResult">
+          <div class="status-info">
+            <div class="status-info-row">
+              <span class="status-label">संदर्भ क्रमांक:</span>
+              <span><strong>GP/DVR/2025/0001</strong></span>
+            </div>
+            <div class="status-info-row">
+              <span class="status-label">तक्रार प्रकार:</span>
+              <span>💧 पाणी पुरवठा</span>
+            </div>
+            <div class="status-info-row">
+              <span class="status-label">नोंदणी दिनांक:</span>
+              <span>१२ जानेवारी २०२५</span>
+            </div>
+            <div class="status-info-row">
+              <span class="status-label">स्थिती:</span>
+              <span><span class="status-badge processing">प्रक्रियेत आहे</span></span>
+            </div>
+          </div>
+
+          <div class="progress-timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot">✓</div>
+              <div class="timeline-content">
+                <h4>तक्रार नोंदली</h4>
+                <p>आपली तक्रार यशस्वीपणे नोंदली गेली आहे.</p>
+                <div class="timeline-date">१२ जानेवारी २०२५ - १०:३० AM</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot">✓</div>
+              <div class="timeline-content">
+                <h4>संबंधित विभागाकडे पाठवले</h4>
+                <p>पाणीपुरवठा विभागाकडे तक्रार पाठवली आहे.</p>
+                <div class="timeline-date">१२ जानेवारी २०२५ - ०२:१५ PM</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot">⏳</div>
+              <div class="timeline-content">
+                <h4>तपासणी सुरू</h4>
+                <p>तांत्रिक पथक समस्येची तपासणी करत आहे.</p>
+                <div class="timeline-date">प्रक्रियेत...</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot">⏳</div>
+              <div class="timeline-content">
+                <h4>निराकरण</h4>
+                <p>समस्येचे निराकरण करण्यात येईल.</p>
+                <div class="timeline-date">प्रतीक्षेत...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guidelines Tab -->
+    <div id="guidelines" class="tab-content">
+      <div class="guidelines-section">
+        <div class="form-header">
+          <h2>मार्गदर्शक तत्त्वे आणि माहिती</h2>
+          <p>तक्रार नोंदवण्यापूर्वी कृपया या मार्गदर्शक तत्त्वांचा अभ्यास करा</p>
+        </div>
+
+        <div class="guidelines-grid">
+          <div class="guideline-card">
+            <h3>📝 तक्रार कशी नोंदवावी</h3>
+            <ul class="guideline-list">
+              <li>सर्व आवश्यक माहिती तपशीलवार भरा</li>
+              <li>योग्य तक्रार प्रकार निवडा</li>
+              <li>समस्येचे स्पष्ट वर्णन द्या</li>
+              <li>शक्य असल्यास फोटो संलग्न करा</li>
+              <li>संदर्भ क्रमांक सुरक्षित ठेवा</li>
+              <li>योग्य संपर्क माहिती द्या</li>
+            </ul>
+          </div>
+
+          <div class="guideline-card">
+            <h3>⏱️ निराकरण कालमर्यादा</h3>
+            <ul class="guideline-list">
+              <li>अत्यंत तातडीची - २४ तास</li>
+              <li>पाणी पुरवठा - ३ दिवस</li>
+              <li>रस्ते दुरुस्ती - ७ दिवस</li>
+              <li>स्वच्छता - ४८ तास</li>
+              <li>वीज संबंधित - २४ तास</li>
+              <li>इतर तक्रारी - १५ दिवस</li>
+            </ul>
+          </div>
+
+          <div class="guideline-card">
+            <h3>✅ काय करावे</h3>
+            <ul class="guideline-list">
+              <li>सत्य आणि अचूक माहिती द्या</li>
+              <li>शिष्ट भाषा वापरा</li>
+              <li>स्पष्ट आणि संक्षिप्त लिहा</li>
+              <li>पुरावे संलग्न करा</li>
+              <li>नियमितपणे स्थिती तपासा</li>
+              <li>फॉलोअप करण्यासाठी कार्यालय वेळेत संपर्क साधा</li>
+            </ul>
+          </div>
+
+          <div class="guideline-card">
+            <h3>❌ काय टाळावे</h3>
+            <ul class="guideline-list">
+              <li>खोटी माहिती देऊ नये</li>
+              <li>अपमानजनक भाषा वापरू नये</li>
+              <li>एकाच तक्रारीची पुनरावृत्ती करू नये</li>
+              <li>अनावश्यक तपशील देऊ नये</li>
+              <li>व्यक्तिगत आरोप करू नये</li>
+              <li>असत्य दावे करू नये</li>
+            </ul>
+          </div>
+
+          <div class="guideline-card">
+            <h3>📞 संपर्क माहिती</h3>
+            <ul class="guideline-list">
+              <li><strong>ग्रामपंचायत:</strong> ०२३४७-२५२१००</li>
+              <li><strong>सरपंच:</strong> ९८१२३ ४५६७८</li>
+              <li><strong>ग्रामसेवक:</strong> ९८७६५ ४३२१०</li>
+              <li><strong>ईमेल:</strong> devrashtre1940@gmail.com</li>
+              <li><strong>पत्ता:</strong> देवराष्ट्रे, कडेगाव, सांगली</li>
+              <li><strong>हेल्पलाईन:</strong> १०७७ (टोलफ्री)</li>
+            </ul>
+          </div>
+
+          <div class="guideline-card">
+            <h3>🔒 गोपनीयता धोरण</h3>
+            <ul class="guideline-list">
+              <li>आपली वैयक्तिक माहिती सुरक्षित आहे</li>
+              <li>माहिती फक्त अधिकृत व्यक्तींना उपलब्ध</li>
+              <li>तक्रारीचे निराकरणासाठी वापर</li>
+              <li>तृतीय पक्षाला माहिती दिली जाणार नाही</li>
+              <li>आरटीआय कायद्याअंतर्गत माहिती उपलब्ध</li>
+              <li>संपूर्ण प्रक्रिया पारदर्शक आहे</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card" style="margin-top: 40px;">
+          <h3>💡 महत्वाची सूचना</h3>
+          <p style="font-size: 1.1rem; line-height: 1.8;">
+            आपली तक्रार नोंदवल्यानंतर आपल्याला SMS द्वारे संदर्भ क्रमांक प्राप्त होईल. या क्रमांकाद्वारे आपण आपल्या तक्रारीची स्थिती ऑनलाइन तपासू शकता. तक्रारीचे निराकरण झाल्यानंतर आपल्याला SMS द्वारे कळविण्यात येईल. गंभीर प्रकरणांमध्ये कृपया थेट ग्रामपंचायत कार्यालयात संपर्क साधा.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Success Message Modal -->
+  <div class="overlay" id="overlay"></div>
+  <div class="success-message" id="successMessage">
+    <div class="icon">✅</div>
+    <h3>तक्रार यशस्वीपणे नोंदली!</h3>
+    <p>आपली तक्रार नोंदली गेली आहे.</p>
+    <div class="ref-number" id="refNumber">GP/DVR/2025/0001</div>
+    <p style="font-size: 1rem; color: #888;">कृपया हा संदर्भ क्रमांक सुरक्षित ठेवा</p>
+    <button class="submit-btn" style="margin-top: 20px; width: auto; padding: 12px 40px; font-size: 1.1rem;" onclick="closeSuccessMessage()">
+      ठीक आहे
+    </button>
+  </div>
+
+  <!-- Back Button -->
+  <a href="index.html" class="back-btn">← मुख्यपृष्ठावर परत जा</a>
+
+  <script>
+    // Tab Switching
+    function openTab(tabName) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const btns = document.querySelectorAll('.tab-btn');
+      
+      tabs.forEach(tab => tab.classList.remove('active'));
+      btns.forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // File Upload
+    function updateFileName(input) {
+      const fileName = document.getElementById('fileName');
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        
+        if (fileSizeMB > 5) {
+          alert('फाइल साइझ 5MB पेक्षा जास्त असू शकत नाही!');
+          input.value = '';
+          fileName.textContent = '';
+          return;
+        }
+        
+        fileName.textContent = `✓ ${file.name} (${fileSizeMB} MB)`;
+      } else {
+        fileName.textContent = '';
+      }
+    }
+
+    // Submit Complaint
+    function submitComplaint(event) {
+      event.preventDefault();
+      
+      // Generate reference number
+      const refNum = 'GP/DVR/2025/' + String(Math.floor(Math.random() * 9999) + 1).padStart(4, '0');
+      document.getElementById('refNumber').textContent = refNum;
+      
+      // Show success message
+      document.getElementById('overlay').classList.add('show');
+      document.getElementById('successMessage').classList.add('show');
+      
+      // Reset form
+      document.getElementById('complaintForm').reset();
+      document.getElementById('fileName').textContent = '';
+    }
+
+    // Close Success Message
+    function closeSuccessMessage() {
+      document.getElementById('overlay').classList.remove('show');
+      document.getElementById('successMessage').classList.remove('show');
+    }
+
+    // Track Complaint
+    function trackComplaint() {
+      const searchValue = document.getElementById('searchInput').value;
+      
+      if (!searchValue) {
+        alert('कृपया संदर्भ क्रमांक किंवा मोबाईल नंबर टाका');
+        return;
+      }
+      
+      // Show status (in real implementation, this would fetch from database)
+      const statusResult = document.getElementById('statusResult');
+      statusResult.classList.add('show');
+      
+      // Scroll to result
+      statusResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Close overlay on click
+    document.getElementById('overlay').addEventListener('click', closeSuccessMessage);
+  </script>
+
+</body>
+</html>
