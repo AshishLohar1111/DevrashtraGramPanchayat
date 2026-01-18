@@ -300,6 +300,41 @@
   width: 100%;
 }
 
+/* ===== MOBILE FIX FOR VOLAKH DROPDOWN ===== */
+@media (max-width: 768px) {
+
+  .volakh-wrapper {
+    position: static; /* 🔥 REQUIRED */
+  }
+
+  .volakh-dropdown {
+    position: absolute;
+
+    /* FORCE INSIDE SCREEN */
+    left: 12px !important;
+    right: 12px !important;
+    transform: none !important;
+
+    min-width: unset;
+    width: auto;
+
+    margin-top: 10px;
+    border-radius: 16px;
+  }
+
+  .volakh-dropdown a {
+    text-align: center;
+    white-space: normal;
+    transform: none !important;
+  }
+
+  /* Hover bridge breaks mobile tap */
+  .volakh-wrapper::after {
+    display: none;
+  }
+}
+
+
 /* ================= नागरीक पोर्टल DROPDOWN ================= */
 
 .nagrik-wrapper {
@@ -339,6 +374,39 @@
   transform: none;
   box-shadow: none;
 }
+
+@media (max-width: 768px) {
+
+  .nagrik-wrapper {
+    position: static;   /* 🔥 CRITICAL */
+  }
+
+  .nagrik-dropdown {
+    position: absolute;
+    left: 10px !important;
+    right: 10px !important;
+    transform: none !important;
+
+    width: auto;
+    min-width: unset;
+
+    margin-top: 10px;
+    border-radius: 16px;
+  }
+
+  .nagrik-dropdown a {
+    display: block;
+    text-align: center;
+    white-space: normal;
+    transform: none !important;
+  }
+
+  /* Disable hover gap (breaks mobile) */
+  .nagrik-wrapper::after {
+    display: none;
+  }
+}
+
 
 /* Show dropdown */
 .nagrik-wrapper:hover .nagrik-dropdown {
